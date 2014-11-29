@@ -1,19 +1,41 @@
-<h1>Recipe Information</h1>
-  <ul>
-    <li><h4>Name</h4><%= @recipe_info[0]["name"] %></li>
-    <li>eDescription</h4><%= @recipe_info[0]["description"] %></li>
-    <li><h4>Instructions</h4><%= @recipe_info[0]["instructions"] %></li>
-  </ul>
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
 
-  <div>
+  <head>
+    <meta charset="utf-8">
+    <!-- If you delete this meta tag World War Z will become a reality -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie</title>
+    <link rel="stylesheet" href="public/foundation.css">
+
+    <!-- This is how you would link your custom stylesheet -->
+    <link rel="stylesheet" href="public/app.css">
+
+    <script src="js/vendor/modernizr.js"></script>
+
+  </head>
+
+
+<body>
+
+  <h1>Recipe Information</h1>
     <ul>
+      <li><h4>Name</h4><%= @recipe_info[0]["name"] %></li>
+      <li><h4>Description</h4><%= @recipe_info[0]["description"] %></li>
+      <li><h4>Instructions</h4><%= @recipe_info[0]["instructions"] %></li>
+    </ul>
 
-
-      <li>
-        <h4>Ingredients</h4>
-      <% @recipe_ingredients.each do |ingredient|%>
-        <p><%= ingredient["name"] %></p>
-      </li>
-        <% end %>
+    <div>
+      <ul>
+        <li>
+          <h4>Ingredients</h4>
+        <% @recipe_ingredients.each do |ingredient|%>
+          <p><%= ingredient["name"] %></p>
+        </li>
+          <% end %>
       </ul>
     </div>
+  </body>
+
+</html>

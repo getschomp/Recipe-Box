@@ -37,12 +37,12 @@ get '/recipes/:id' do
     #* The page must include the recipe name, description, and instructions.
   #* The page must list the ingredients required for the recipe.
   db_connection do |conn|
-    @recipe_info = conn.exec_params("SELECT recipes.id, recipes.name, recipes.description, recipes.instructions FROM recipes
+    @recipe_info = conn.exec_params("SELECT id, name, description, instructions FROM recipes
                                             WHERE recipes.id = #{@recipe_id}")
   end
 
-  db_connection do |conn|
-    @recipe_ingredients = conn.exec_params("SELECT ingredients.name FROM ingredients
+  db_connection do |connection|
+    @recipe_ingredients = connection.exec_params("SELECT ingredients.name FROM ingredients
     WHERE ingredients.recipe_id = #{@recipe_id}")
   end
 
