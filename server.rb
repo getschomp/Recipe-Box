@@ -31,3 +31,20 @@ get '/recipes' do
 
   erb :'index'
 end
+
+get '/recipes/:id' do
+  @recipe_id = params[:id]
+    #* The page must include the recipe name, description, and instructions.
+  #* The page must list the ingredients required for the recipe.
+  db_connection do |conn|
+    @recipe_info = conn.exec_params("SELECT recipes.id, recipes.name, recipes.description, recipes.instructions FROM recipes
+                                            WHERE recipes.id = #{@recipe_id}")
+  end
+
+  db_connection do |conn|
+    @recipe_ingredients = conn.exec_params("SELECT ingredients.name FROM ingredients
+    WHERE ingredients.recipe_id = #{@recipe_id}")
+  end
+
+  erb :'show'
+end

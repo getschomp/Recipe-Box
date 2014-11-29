@@ -1,0 +1,19 @@
+<h1>Recipe Information</h1>
+  <ul>
+    <li><h4>Name</h4><%= @recipe_info[0]["name"] %></li>
+    <li>eDescription</h4><%= @recipe_info[0]["description"] %></li>
+    <li><h4>Instructions</h4><%= @recipe_info[0]["instructions"] %></li>
+  </ul>
+
+  <div>
+    <ul>
+
+
+      <li>
+        <h4>Ingredients</h4>
+      <% @recipe_ingredients.each do |ingredient|%>
+        <p><%= ingredient["name"] %></p>
+      </li>
+        <% end %>
+      </ul>
+    </div>
